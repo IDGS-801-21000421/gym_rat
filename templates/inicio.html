@@ -1,0 +1,222 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>GYM CORP - Dashboard</title>
+
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Oswald:wght@300;400;700&family=Roboto:wght@300;400;500&display=swap" rel="stylesheet">
+
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    
+    <!-- Bootstrap Icons -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.css">
+
+    <style>
+        /* ====== GLOBAL ====== */
+        body {
+            font-family: 'Oswald', sans-serif;
+            background-color: #121212;
+            color: #FFFFFF;
+        }
+
+        .navbar {
+            box-shadow: 0px 5px 15px rgba(0, 0, 0, 0.5);
+            position: fixed;
+            top: 0;
+            width: 100%;
+            z-index: 1000;
+        }
+
+        .navbar-brand {
+            font-size: 1.8rem;
+            font-weight: bold;
+        }
+
+        .navbar-nav .nav-link {
+            font-size: 1.1rem;
+            padding: 10px;
+            transition: color 0.3s ease-in-out;
+        }
+
+        .navbar-nav .nav-link:hover {
+            color: #0077FF;
+        }
+
+        .btn-outline-danger {
+            font-size: 1.1rem;
+            padding: 8px 15px;
+        }
+
+        /* ====== CARRUSEL DE PROMOCIONES ====== */
+        .carousel-inner img {
+            margin-top: 68px;
+            height: 700px;
+            object-fit: cover;
+        }
+
+        /* ====== SECCIÓN DE TARJETAS ====== */
+        .card {
+            transition: transform 0.3s ease-in-out, box-shadow 0.3s ease-in-out;
+            background-color: #1F1F1F;
+            border: none;
+            color: white;
+        }
+
+        .card:hover {
+            transform: scale(1.05);
+            box-shadow: 0px 10px 20px rgba(0, 0, 0, 0.6);
+        }
+
+        .card img {
+            height: 220px;
+            object-fit: cover;
+            border-radius: 10px 10px 0 0;
+        }
+
+        /* ====== TITULOS Y BOTONES ====== */
+        h1 {
+            font-size: 2.5rem;
+            font-weight: bold;
+            color: #0077FF;
+        }
+
+        .btn-primary {
+            background-color: #0077FF;
+            border: none;
+            transition: background-color 0.3s ease-in-out, transform 0.2s ease-in-out;
+        }
+
+        .btn-primary:hover {
+            background-color: #005FCC;
+            transform: scale(1.05);
+        }
+
+        .dropdown-menu .dropdown-item.text-white:hover {
+            background-color: #333333 !important;
+        }
+       
+        .dropdown-menu .dropdown-item.text-danger:hover {
+            background-color: #333333 !important;
+            color: #DC3545 !important;
+        }
+
+    </style>
+
+</head>
+<body>
+
+     <!-- Barra de Navegación -->
+     <nav class="navbar navbar-expand-lg navbar-dark bg-dark px-4">
+        <a class="navbar-brand" style="color: #0077FF;" href="#">GYM CORP</a>
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse justify-content-center" id="navbarNav">
+            <ul class="navbar-nav">
+                <li class="nav-item"><a class="nav-link" href="#">Mis Rutinas</a></li>
+                <li class="nav-item"><a class="nav-link" href="#">Progreso</a></li>
+                <li class="nav-item"><a class="nav-link" href="#">Clases</a></li>
+                <li class="nav-item"><a class="nav-link" href="#">Nutrición</a></li>
+                <li class="nav-item"><a class="nav-link" href="#">Tienda Fitness</a></li>
+                <li class="nav-item"><a class="nav-link" href="#">Ubicaciones</a></li>
+            </ul>
+        </div>
+
+         <!-- Menú de Usuario con Desplegable -->
+         <div class="dropdown text-end">
+            <a class="nav-link dropdown-toggle d-flex align-items-center text-white" href="#" id="userDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                <i class="bi bi-person-circle fs-4 me-2"></i> <!-- Ícono de Usuario -->
+                <span>Mi Cuenta</span>
+            </a>
+            <ul class="dropdown-menu dropdown-menu-end bg-dark" aria-labelledby="userDropdown">
+                <li><a class="dropdown-item text-white" href="#">Mi Perfil</a></li>
+                <li><hr class="dropdown-divider"></li>
+                <li><a class="dropdown-item text-white" href="#">Contactanos</a></li>
+                <li><hr class="dropdown-divider"></li>
+                <li><a class="dropdown-item text-danger fw-bold" href="#">Cerrar Sesión</a></li>
+            </ul>
+        </div>
+        
+    </nav>
+
+    <!-- Carrusel de Promociones -->
+    <div id="promoCarousel" class="carousel slide" data-bs-ride="carousel">
+        <div class="carousel-inner">
+            <div class="carousel-item active">
+                <img src="{{ url_for('static', filename='images/img4.jpg') }}" class="d-block w-100" alt="Promo 1">
+                <div class="carousel-caption text-center" style="top: 300px;">
+                    <h1 class="text-warning fw-bold">20% de Descuento</h1>
+                    <p class="fs-3">En todos los suplementos</p>
+                </div>
+            </div>  
+            <div class="carousel-item">
+                <img src="{{ url_for('static', filename='images/img3.jpg') }}" class="d-block w-100" alt="Promo 2">
+                <div class="carousel-caption text-start">
+                    <h3 class="text-warning fw-bold fs-1">Clases Ilimitadas</h3>
+                    <p class="fs-3">Accede a todas nuestras clases sin costo adicional.</p>
+                </div>
+            </div>           
+            <div class="carousel-item">
+                <img src="{{ url_for('static', filename='images/img1.jpg') }}" class="d-block w-100" alt="Promo 3">
+                <div class="carousel-caption text-start">
+                    <h3 class="text-warning fw-bold fs-1"> 50% en Membresías Anuales</h3>
+                    <p class="fs-3">Aferta por tiempo limitado</p>
+                </div>
+            </div>  
+        </div>
+        <button class="carousel-control-prev" type="button" data-bs-target="#promoCarousel" data-bs-slide="prev">
+            <span class="carousel-control-prev-icon"></span>
+        </button>
+        <button class="carousel-control-next" type="button" data-bs-target="#promoCarousel" data-bs-slide="next">
+            <span class="carousel-control-next-icon"></span>
+        </button>
+    </div>
+
+    <!-- Sección de Funcionalidades -->
+    <div class="container mt-5">
+        <h1 class="text-center">Gestiona tu entrenamiento y accede a contenido exclusivo</h1>
+
+        <div class="row mt-4">
+            <div class="col-md-4">
+                <div class="card text-center shadow">
+                    <i class="bi bi-bicycle fs-1 mt-3"></i>
+                    <div class="card-body">
+                        <h5 class="card-title">Rutinas de Entrenamiento</h5>
+                        <p class="card-text">Crea y sigue rutinas personalizadas.</p>
+                        <a href="#" class="btn btn-primary">Ver Rutinas</a>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-md-4">
+                <div class="card text-center shadow">
+                    <i class="bi bi-graph-up fs-1 mt-3"></i>
+                    <div class="card-body">
+                        <h5 class="card-title">Tu Progreso</h5>
+                        <p class="card-text">Haz seguimiento a tus avances y logros.</p>
+                        <a href="#" class="btn btn-primary">Ver Progreso</a>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-md-4">
+                <div class="card text-center shadow">
+                    <i class="bi bi-nutrition fs-1 mt-3"></i>
+                    <div class="card-body">
+                        <h5 class="card-title">Nutrición</h5>
+                        <p class="card-text">Consulta planes alimenticios y recetas.</p>
+                        <a href="#" class="btn btn-primary">Ver Planes</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Bootstrap JS -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+
+</body>
+</html>

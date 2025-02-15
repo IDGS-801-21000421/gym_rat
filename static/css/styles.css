@@ -1,0 +1,282 @@
+/* Configuración global */
+/* Define la tipografía, color de fondo y centra el contenido */
+body {
+    font-family: 'Oswald', sans-serif;
+    background-color: #121212;
+    color: #CCCCCC;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    margin: 0;
+}
+
+/* Contenedor del login */
+.login-container {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 100%;
+    max-width: 400px;
+}
+
+/* Caja del login */
+/* Estilos de la caja del formulario */
+.login-box {
+    background-color: #1F1F1F;
+    padding: 2rem;
+    border-radius: 10px;
+    box-shadow: 0px 5px 15px rgba(0, 0, 0, 0.5);
+    text-align: center;
+    transition: transform 0.3s ease-in-out, box-shadow 0.3s ease-in-out;
+}
+
+/* Efecto de elevación al pasar el mouse */
+.login-box:hover {
+    transform: translateY(-5px);
+    box-shadow: 0px 10px 20px rgba(0, 0, 0, 0.6);
+}
+
+/* Animación de aparición */
+/* Hace que la caja aparezca con un efecto deslizante */
+@keyframes fadeInUp {
+    0% {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+    100% {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.login-box {
+    animation: fadeInUp 0.8s ease-out;
+}
+
+/* Título principal */
+/* Estilos del título "GYM CORP" */
+.login-title {
+    font-size: 2rem;
+    font-weight: 700;
+    color: #0077FF;
+    margin-bottom: 0.5rem;
+}
+
+/* Campos de entrada */
+/* Estilos generales de los inputs */
+.animated-input {
+    background-color: #2A2A2A;
+    border: none;
+    color: white;
+    padding: 0.75rem;
+    transition: all 0.3s ease-in-out;
+}
+
+/* Placeholder estilizado */
+.animated-input::placeholder {
+    color: #888888;
+}
+
+/* Efecto glow en los inputs al escribir */
+.animated-input:focus {
+    background-color: #333333;
+    border-color: #0077FF;
+    box-shadow: 0 0 15px rgba(0, 119, 255, 0.5);
+    transform: scale(1.02);
+}
+
+/* Botón */
+/* Estilos del botón principal */
+.btn-primary {
+    background-color: #0077FF;
+    border: none;
+    padding: 0.75rem;
+    font-size: 1rem;
+    font-weight: 500;
+    transition: background-color 0.3s ease-in-out, transform 0.2s ease-in-out;
+}
+
+/* Efecto al pasar el mouse sobre el botón */
+.btn-primary:hover {
+    background-color: #005FCC;
+    transform: scale(1.05);
+}
+
+/* Enlace de recuperación de contraseña */
+/* Estilos del enlace "¿Olvidaste tu contraseña?" */
+.forgot-password {
+    color: #0077FF;
+    text-decoration: none;
+    font-size: 0.9rem;
+}
+
+.forgot-password:hover {
+    text-decoration: underline;
+}
+
+/* Texto de registro */
+/* Estilos del mensaje de registro */
+.register-text {
+    font-size: 0.9rem;
+    margin-top: 1rem;
+}
+
+/* Estilos de los enlaces dentro del texto de registro */
+.register-text a {
+    color: #0077FF;
+    text-decoration: none;
+}
+
+.register-text a:hover {
+    text-decoration: underline;
+}
+
+/* Alerta SweetAlert2 de registro*/
+.swal-popup {
+    font-family: 'Oswald', sans-serif;
+    border-radius: 10px;
+    padding: 20px;
+    box-shadow: 0px 5px 15px rgba(0, 0, 0, 0.5);
+}
+
+.swal-title {
+    font-size: 22px;
+    font-weight: bold;
+}
+
+.swal-button {
+    font-size: 16px;
+    font-weight: 600;
+    padding: 10px 20px;
+    border-radius: 5px;
+    text-transform: uppercase;
+}
+
+
+
+/* Mostrar/ocultar contraseña */
+/* Estilos del ícono de mostrar/ocultar contraseña */
+.toggle-password {
+    position: absolute;
+    top: 50%;
+    right: 15px;
+    transform: translateY(-50%);
+    cursor: pointer;
+    color: #888888;
+}
+
+/* Cambio de color al pasar el mouse sobre el ícono */
+.toggle-password:hover {
+    color: #0077FF;
+}
+
+/* Transición entre formularios */
+/* Oculta el formulario de registro inicialmente */
+.hidden {
+    display: none;
+    opacity: 0;
+    transform: translateX(100%);
+    transition: all 0.5s ease-in-out;
+}
+
+/* Efecto de entrada al cambiar de formulario */
+.fade-in {
+    opacity: 1 !important;
+    transform: translateX(0) !important;
+}
+
+/* Restablcer contraseña */
+.reset-container {
+    width: 100%;
+    max-width: 400px;
+}
+
+.reset-box {
+    background-color: #1F1F1F;
+    padding: 2rem;
+    border-radius: 10px;
+    box-shadow: 0px 5px 15px rgba(0, 0, 0, 0.5);
+    text-align: center;
+}
+
+/* Animación de entrada para la caja */
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(10px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.reset-box {
+    animation: fadeIn 0.5s ease-in-out;
+}
+
+/* alerta de SweetAlert2 personalizada */
+.swal-popup {
+    position: fixed;
+    font-family: 'Oswald', sans-serif;
+    border-radius: 10px;
+    padding: 20px;
+    box-shadow: 0px 5px 15px rgba(0, 0, 0, 0.5);
+}
+
+.swal-title {
+    font-size: 22px;
+    font-weight: bold;
+}
+
+.swal-button {
+    font-size: 16px;
+    font-weight: 600;
+    padding: 10px 20px;
+    border-radius: 5px;
+    text-transform: uppercase;
+}
+
+/* Dashboard */
+.container {
+    max-width: 1200px;
+}
+
+/* Tarjetas con animaciones */
+.card {
+    transition: transform 0.3s ease-in-out, box-shadow 0.3s ease-in-out;
+    border-radius: 10px;
+}
+
+.card:hover {
+    transform: scale(1.05);
+    box-shadow: 0px 10px 20px rgba(0, 0, 0, 0.6);
+}
+
+/* Navbar */
+.navbar {
+    box-shadow: 0px 5px 15px rgba(0, 0, 0, 0.5);
+}
+
+.navbar-brand {
+    font-size: 1.8rem;
+}
+
+/* Botones */
+.btn-primary {
+    background-color: #0077FF;
+    border: none;
+    transition: background-color 0.3s ease-in-out, transform 0.2s ease-in-out;
+}
+
+.btn-primary:hover {
+    background-color: #005FCC;
+    transform: scale(1.05);
+}
+
+
+
+
+

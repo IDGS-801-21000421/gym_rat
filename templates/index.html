@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>GYM CORP - Login</title>
+
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Oswald:wght@300;400;700&family=Roboto:wght@300;400;500&display=swap" rel="stylesheet">
+
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    
+    <!-- Bootstrap Icons -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.css">
+    
+    <!-- Archivo CSS Personalizado -->
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/styles.css') }}">
+</head>
+<body>
+
+    <div class="login-container">
+        <h2 class="login-title text-center fs-1 mb-4">GYM CORP</h2>
+        <div class="login-box">
+          
+          <!-- Formulario de Login -->
+          <form id="loginForm">
+            <div class="mb-3">
+              <label for="user" class="form-label">Usuario</label>
+              <input type="text" class="form-control text-white animated-input" id="user" placeholder="Usuario" autocomplete="off">
+            </div>
+            <div class="mb-3 position-relative">
+                <label for="password" class="form-label">Contraseña</label>
+                <input type="password" class="form-control animated-input text-white" id="password" placeholder="Contraseña" autocomplete="off">
+                <i class="bi bi-eye-fill toggle-password mt-3"></i>
+            </div>
+            <div class="d-flex justify-content-center">
+              <a href="{{ url_for('reset_password') }}" class="forgot-password">¿Olvidaste tu contraseña?</a>
+            </div>
+            <button type="submit" class="btn btn-primary w-100 mt-3">Ingresar</button>
+            <p class="register-text">¿No tienes cuenta? <a href="#" id="showRegister">Regístrate aquí</a></p>
+          </form>
+
+          <!-- Formulario de Registro (Oculto por defecto) -->
+          <form id="registerForm" class="hidden">
+            <div class="mb-3">
+              <label for="register-name" class="form-label">Nombre</label>
+              <input type="text" class="form-control animated-input text-white" id="register-name" placeholder="Tu nombre" autocomplete="off">
+            </div>
+            <div class="mb-3">
+              <label for="register-lastname" class="form-label">Apellidos</label>
+              <input type="text" class="form-control animated-input text-white" id="register-lastname" placeholder="Tus apellidos" autocomplete="off">
+            </div>
+            <div class="mb-3">
+              <label for="register-username" class="form-label">Nombre de usuario</label>
+              <input type="text" class="form-control animated-input text-white" id="register-username" placeholder="Tu usuario" autocomplete="off">
+            </div>
+            <div class="mb-3">
+              <label for="register-email" class="form-label">Correo Electrónico</label>
+              <input type="email" class="form-control animated-input text-white" id="register-email" placeholder="Tu correo" autocomplete="off">
+            </div>
+            <div class="mb-3">
+              <label for="register-age" class="form-label">Edad</label>
+              <input type="number" class="form-control animated-input text-white" id="register-age" placeholder="Tu edad" autocomplete="off">
+            </div>
+            <div class="mb-3 position-relative">
+              <label for="register-password" class="form-label">Contraseña</label>
+              <input type="password" class="form-control animated-input text-white" id="register-password" placeholder="Contraseña">
+              <i class="bi bi-eye-fill mt-3 toggle-password"></i>
+            </div>
+            <button type="submit" class="btn btn-primary w-100 mt-3">Registrarme</button>
+            <p class="register-text">¿Ya tienes cuenta? <a href="#" id="showLogin">Inicia sesión aquí</a></p>
+          </form>
+
+        </div>
+    </div>
+    
+    <!-- Bootstrap JS -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    
+    <!-- Archivo JS Personalizado -->
+    <script src="{{ url_for('static', filename='js/scripts.js') }}"></script>
+
+</body>
+</html>
